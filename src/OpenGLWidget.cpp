@@ -77,9 +77,9 @@ void OpenGLWidget::initializeGL(){
 
     glUniform3f(lightDirLoc, 0.0, 0.0, 1.0);
     glUniform3f(light1DirLoc, -0.5, 0.2, 1.0);
-    glUniform3f(light1ColLoc, 1.0, 0.0, 0.0);
+    glUniform3f(light1ColLoc, 1.0, 1.0, 1.0);
     glUniform3f(light2DirLoc, 0.5, 0.0, 1.0);
-    glUniform3f(light2ColLoc, 0.0, 1.0, 0.0);
+    glUniform3f(light2ColLoc, 1.0, 1.0, 1.0);
 
     glUniform1i(numLightsLoc, 2);
 
