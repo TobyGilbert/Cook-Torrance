@@ -10,7 +10,7 @@ Multiple lights:
 
 Low Roughness:
 
-![alt tag](https://raw.github.com/TobyGilbert/Cook-Torrance/master/images/highRoughness.png)
+![alt tag](https://raw.github.com/TobyGilbert/Cook-Torrance/master/images/lowRoughness.png)
 
 Medium Roughness:
 
@@ -18,7 +18,7 @@ Medium Roughness:
 
 High Roughness:
 
-![alt tag](https://raw.github.com/TobyGilbert/Cook-Torrance/master/images/lowRoughness.png)
+![alt tag](https://raw.github.com/TobyGilbert/Cook-Torrance/master/images/highRoughness.png)
 
 
 
