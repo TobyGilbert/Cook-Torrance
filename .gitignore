@@ -27,6 +27,9 @@
 *.out
 *.app
 
+#folders
+/videos
+
 #QT files
 *.pro.user
 *.pro.user.16

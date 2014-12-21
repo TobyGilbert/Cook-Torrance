@@ -57,7 +57,7 @@ void OpenGLWidget::initializeGL(){
     delete m_vertexShader;
     delete m_fragmentShader;
 
-    m_model = new Model("models/sphere.obj");
+    m_model = new Model("models/bunny.obj");
     //m_model = new Model();
    // m_model->loadCube();
 
@@ -67,9 +67,21 @@ void OpenGLWidget::initializeGL(){
     m_modelViewLoc = m_shaderProgram->getUniformLoc("modelViewMatrix");
 
     GLuint lightDirLoc = m_shaderProgram->getUniformLoc("lightDirection");
+    GLuint light1DirLoc = m_shaderProgram->getUniformLoc("light[0].direction");
+    GLuint light1ColLoc = m_shaderProgram->getUniformLoc("light[0].colour");
+    GLuint light2DirLoc = m_shaderProgram->getUniformLoc("light[1].direction");
+    GLuint light2ColLoc = m_shaderProgram->getUniformLoc("light[1].colour");
+
+    GLuint numLightsLoc = m_shaderProgram->getUniformLoc("numLights");
 
 
-    glUniform3f(lightDirLoc, 0.0, 0.5, 1.0);
+    glUniform3f(lightDirLoc, 0.0, 0.0, 1.0);
+    glUniform3f(light1DirLoc, -0.5, 0.2, 1.0);
+    glUniform3f(light1ColLoc, 1.0, 0.0, 0.0);
+    glUniform3f(light2DirLoc, 0.5, 0.0, 1.0);
+    glUniform3f(light2ColLoc, 0.0, 1.0, 0.0);
+
+    glUniform1i(numLightsLoc, 2);
 
 
     // Initialize the camera
@@ -116,6 +128,8 @@ void OpenGLWidget::paintGL(){
     m_mouseGlobalTX[3][1] = m_modelPos.y;
     m_mouseGlobalTX[3][2] = m_modelPos.z;
     m_modelMatrix = m_mouseGlobalTX;
+
+    m_modelMatrix = glm::scale(m_modelMatrix, glm::vec3(10.0, 10.0, 10.0));
 
     // Set the roughness of the material
     GLuint roughnessLoc = m_shaderProgram->getUniformLoc("roughness");

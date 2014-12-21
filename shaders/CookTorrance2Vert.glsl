@@ -9,6 +9,8 @@ struct lights{
   vec3 colour;
 };
 
+uniform lights light1;
+uniform lights light2;
 
 out vec3 normal;
 out vec3 eyeDir;
