@@ -132,6 +132,7 @@ void Model::loadModel(std::string _path){
    vertices = mesh->mVertices;
    m_numVerts = mesh->mNumVertices;
    normals = mesh->mNormals;
+
    for (unsigned int i = 0; i<mesh->mNumVertices; i++){
       textureCoords[i] = &(mesh->mTextureCoords[0][i]);
    }

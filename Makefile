@@ -1422,7 +1422,9 @@ obj/OpenGLWidget.o: src/OpenGLWidget.cpp /Users/Toby/Qt5.2.1/5.2.1/clang_64/lib/
 		include/ShaderProgram.h \
 		/opt/local/include/IL/il.h \
 		include/Shader.h \
-		include/Model.h
+		include/Model.h \
+		/opt/local/include/glm/gtc/matrix_inverse.hpp \
+		/opt/local/include/glm/gtc/matrix_inverse.inl
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/OpenGLWidget.o src/OpenGLWidget.cpp
 
 obj/Shader.o: src/Shader.cpp include/Shader.h \

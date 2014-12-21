@@ -45,8 +45,8 @@ void OpenGLWidget::initializeGL(){
 
     // Create a shader program
     m_shaderProgram = new ShaderProgram();
-    m_vertexShader = new Shader("shaders/CookTorrance2Vert.glsl", GL_VERTEX_SHADER);
-    m_fragmentShader = new Shader("shaders/CookTorrance2Frag.glsl", GL_FRAGMENT_SHADER);
+    m_vertexShader = new Shader("shaders/CookTorranceVert.glsl", GL_VERTEX_SHADER);
+    m_fragmentShader = new Shader("shaders/CookTorranceFrag.glsl", GL_FRAGMENT_SHADER);
 
     m_shaderProgram->attachShader(m_vertexShader);
     m_shaderProgram->attachShader(m_fragmentShader);
@@ -57,7 +57,7 @@ void OpenGLWidget::initializeGL(){
     delete m_vertexShader;
     delete m_fragmentShader;
 
-    m_model = new Model("models/bunny.obj");
+    m_model = new Model("models/newteapot.obj");
     //m_model = new Model();
    // m_model->loadCube();
 
@@ -77,15 +77,15 @@ void OpenGLWidget::initializeGL(){
 
     glUniform3f(lightDirLoc, 0.0, 0.0, 1.0);
     glUniform3f(light1DirLoc, -0.5, 0.2, 1.0);
-    glUniform3f(light1ColLoc, 1.0, 1.0, 1.0);
+    glUniform3f(light1ColLoc, 1.0, 215.0/255.0, 0.0);
     glUniform3f(light2DirLoc, 0.5, 0.0, 1.0);
-    glUniform3f(light2ColLoc, 1.0, 1.0, 1.0);
+    glUniform3f(light2ColLoc, 1.0, 215.0/255.0, 0.0);
 
     glUniform1i(numLightsLoc, 2);
 
 
     // Initialize the camera
-    m_cam = new Camera(glm::vec3(0.0, 0.0, 5.0));
+    m_cam = new Camera(glm::vec3(0.0, 0.0, 3.0));
 
     startTimer(0);
 
@@ -129,7 +129,7 @@ void OpenGLWidget::paintGL(){
     m_mouseGlobalTX[3][2] = m_modelPos.z;
     m_modelMatrix = m_mouseGlobalTX;
 
-    m_modelMatrix = glm::scale(m_modelMatrix, glm::vec3(10.0, 10.0, 10.0));
+    //m_modelMatrix = glm::scale(m_modelMatrix, glm::vec3(10.0, 10.0, 10.0));
 
     // Set the roughness of the material
     GLuint roughnessLoc = m_shaderProgram->getUniformLoc("roughness");

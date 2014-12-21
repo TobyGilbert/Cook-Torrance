@@ -76,5 +76,4 @@ OTHER_FILES += \
     models/sphere.obj \
     models/sphere.mtl \
     models/Predator.obj \
-    shaders/CookTorrance2Frag.glsl \
-    shaders/CookTorrance2Vert.glsl
+
