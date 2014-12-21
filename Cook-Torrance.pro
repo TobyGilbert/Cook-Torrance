@@ -74,6 +74,4 @@ OTHER_FILES += \
     shaders/CookTorranceFrag.glsl \
     models/newteapot.obj \
     models/sphere.obj \
-    models/sphere.mtl \
-    models/Predator.obj \
-
+    models/Predator.obj
