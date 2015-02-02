@@ -54,7 +54,8 @@ SOURCES       = src/main.cpp \
 		src/Texture.cpp \
 		src/Model.cpp \
 		src/OpenGLWidget.cpp \
-		src/Shader.cpp moc/moc_mainwindow.cpp \
+		src/Shader.cpp \
+		src/ModelLoader.cpp moc/moc_mainwindow.cpp \
 		moc/moc_OpenGLWidget.cpp
 OBJECTS       = obj/main.o \
 		obj/mainwindow.o \
@@ -66,6 +67,7 @@ OBJECTS       = obj/main.o \
 		obj/Model.o \
 		obj/OpenGLWidget.o \
 		obj/Shader.o \
+		obj/ModelLoader.o \
 		obj/moc_mainwindow.o \
 		obj/moc_OpenGLWidget.o
 DIST          = /Users/Toby/Qt5.2.1/5.2.1/clang_64/mkspecs/features/spec_pre.prf \
@@ -464,7 +466,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d obj/Cook-Torrance1.0.0 || mkdir -p obj/Cook-Torrance1.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) obj/Cook-Torrance1.0.0/ && $(COPY_FILE) --parents include/mainwindow.h include/Camera.h include/ShaderUtils.h include/TextureUtils.h include/ShaderProgram.h include/Texture.h include/Model.h include/OpenGLWidget.h include/Shader.h obj/Cook-Torrance1.0.0/ && $(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/Camera.cpp src/ShaderUtils.cpp src/TextureUtils.cpp src/ShaderProgram.cpp src/Texture.cpp src/Model.cpp src/OpenGLWidget.cpp src/Shader.cpp obj/Cook-Torrance1.0.0/ && $(COPY_FILE) --parents ui/mainwindow.ui obj/Cook-Torrance1.0.0/ && (cd `dirname obj/Cook-Torrance1.0.0` && $(TAR) Cook-Torrance1.0.0.tar Cook-Torrance1.0.0 && $(COMPRESS) Cook-Torrance1.0.0.tar) && $(MOVE) `dirname obj/Cook-Torrance1.0.0`/Cook-Torrance1.0.0.tar.gz . && $(DEL_FILE) -r obj/Cook-Torrance1.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) obj/Cook-Torrance1.0.0/ && $(COPY_FILE) --parents include/mainwindow.h include/Camera.h include/ShaderUtils.h include/TextureUtils.h include/ShaderProgram.h include/Texture.h include/Model.h include/OpenGLWidget.h include/Shader.h include/ModelLoader.h obj/Cook-Torrance1.0.0/ && $(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/Camera.cpp src/ShaderUtils.cpp src/TextureUtils.cpp src/ShaderProgram.cpp src/Texture.cpp src/Model.cpp src/OpenGLWidget.cpp src/Shader.cpp src/ModelLoader.cpp obj/Cook-Torrance1.0.0/ && $(COPY_FILE) --parents ui/mainwindow.ui obj/Cook-Torrance1.0.0/ && (cd `dirname obj/Cook-Torrance1.0.0` && $(TAR) Cook-Torrance1.0.0.tar Cook-Torrance1.0.0 && $(COMPRESS) Cook-Torrance1.0.0.tar) && $(MOVE) `dirname obj/Cook-Torrance1.0.0`/Cook-Torrance1.0.0.tar.gz . && $(DEL_FILE) -r obj/Cook-Torrance1.0.0
 
 
 clean:compiler_clean 
@@ -1510,6 +1512,9 @@ obj/Shader.o: src/Shader.cpp include/Shader.h \
 		/opt/local/include/glm/detail/func_integer.inl \
 		include/ShaderUtils.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/Shader.o src/Shader.cpp
+
+obj/ModelLoader.o: src/ModelLoader.cpp include/ModelLoader.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/ModelLoader.o src/ModelLoader.cpp
 
 obj/moc_mainwindow.o: moc/moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o obj/moc_mainwindow.o moc/moc_mainwindow.cpp

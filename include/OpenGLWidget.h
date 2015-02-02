@@ -12,6 +12,7 @@
 #include "ShaderProgram.h"
 #include "Shader.h"
 #include "Model.h"
+#include "ModelLoader.h"
 
 class OpenGLWidget : public QGLWidget
 {
@@ -179,6 +180,7 @@ private:
     //----------------------------------------------------------------------------------------------------------------------
     float m_roughness;
     //----------------------------------------------------------------------------------------------------------------------
+    ModelLoader *m_modelLoader;
 public slots:
     //----------------------------------------------------------------------------------------------------------------------
     /// @brief Sets the roughness of the material

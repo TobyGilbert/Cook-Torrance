@@ -22,7 +22,8 @@ SOURCES += \
     src/Texture.cpp \
     src/Model.cpp \
     src/OpenGLWidget.cpp \
-    src/Shader.cpp
+    src/Shader.cpp \
+    src/ModelLoader.cpp
 
 
 HEADERS += \
@@ -34,7 +35,8 @@ HEADERS += \
     include/Texture.h \
     include/Model.h \
     include/OpenGLWidget.h \
-    include/Shader.h
+    include/Shader.h \
+    include/ModelLoader.h
 
 INCLUDEPATH += ./ ./include /opt/local/include
 LIBS += -L/opt/local/lib -lIL -lassimp

@@ -26,7 +26,8 @@ OpenGLWidget::OpenGLWidget(const QGLFormat _format, QWidget *_parent) : QGLWidge
 OpenGLWidget::~OpenGLWidget(){
     delete m_cam;
     delete m_shaderProgram;
-    delete m_model;
+//    delete m_model;
+    delete m_modelLoader;
 }
 //----------------------------------------------------------------------------------------------------------------------
 void OpenGLWidget::initializeGL(){
@@ -57,7 +58,8 @@ void OpenGLWidget::initializeGL(){
     delete m_vertexShader;
     delete m_fragmentShader;
 
-    m_model = new Model("models/newteapot.obj");
+//    m_model = new Model("models/newteapot.obj");
+    m_modelLoader = new ModelLoader("models/Red_Demon.obj");
     //m_model = new Model();
    // m_model->loadCube();
 
@@ -138,9 +140,11 @@ void OpenGLWidget::paintGL(){
     // Load the modelview and modelviewprojection matrix
     loadMatricesToShader();
 
-    glBindVertexArray(m_model->getVAO());
-    glDrawArrays(GL_TRIANGLES, 0, m_model->getNumVerts());
-    glBindVertexArray(0);
+//    glBindVertexArray(m_model->getVAO());
+//    glDrawArrays(GL_TRIANGLES, 0, m_model->getNumVerts());
+//    glBindVertexArray(0);
+
+    m_modelLoader->render();
 
 }
 //----------------------------------------------------------------------------------------------------------------------
